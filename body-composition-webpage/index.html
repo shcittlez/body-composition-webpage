@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Composition Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="calculator-container">
+        <!-- Title and Start Button -->
+        <h1>Body Composition Calculator</h1>
+
+        <!-- Start Button -->
+        <div id="startContainer">
+        <button id="startButton" onclick="startCalculator()">Start</button>
+        </div>
+
+        <!-- Tab Buttons (hidden initially) -->
+        <div class="tab-container" style="display: none;">
+            <button class="tab-button" onclick="openTab('bodyMeasurements')">Body Measurements</button>
+            <button class="tab-button" onclick="openTab('skinfoldMeasurements')">Skinfolds</button>
+            <button class="tab-button" onclick="openTab('basicMetrics')">Basic Metrics</button>
+        </div>
+
+        <!-- Body Measurements Tab -->
+        <div id="bodyMeasurements" class="tab-content">
+            <label for="chest">Chest (cm): <a href="https://www.youtube.com/watch?v=Jk9r3eDSlYw" target="_blank">&#8594;</a></label>
+            <input type="number" id="chest" required>
+
+            <label for="waist">Waist (cm): <a href="https://www.youtube.com/watch?v=ZOuF0x4Mk3o" target="_blank">&#8594;</a></label>
+            <input type="number" id="waist" required>
+
+        <!-- Next Button -->
+        <button type="button" onclick="openTab('skinfoldMeasurements')">Next</button>
+        </div>
+
+        <!-- Skinfold Measurements Tab -->
+        <div id="skinfoldMeasurements" class="tab-content" style="display:none;">
+            <label for="chestSkinfold">Chest (mm): <a href="https://www.youtube.com/watch?v=GLAS5zNJMEU" target="_blank">&#8594;</a></label>
+            <input type="number" id="chestSkinfold" required>
+
+            <label for="abdomen">Abdomen (mm): <a href="https://www.youtube.com/watch?v=F-E7PAyVsfE" target="_blank">&#8594;</a></label>
+            <input type="number" id="abdomen" required>
+
+            <label for="thighSkinfold">Front Thigh (mm): <a href="https://www.youtube.com/watch?v=zTQf5ltagsU" target="_blank">&#8594;</a></label>
+            <input type="number" id="thighSkinfold" required>
+
+            <label for="tricepSkinfold">Tricep (mm): <a href="https://www.youtube.com/watch?v=pARYB0XnluY" target="_blank">&#8594;</a></label>
+            <input type="number" id="tricepSkinfold" required>
+
+            <label for="Subscapular">Subscapular (mm): <a href="https://www.youtube.com/watch?v=h3xESEhop5M" target="_blank">&#8594;</a></label>
+            <input type="number" id="subscapular" required>
+
+            <label for="suprailiac">Supraliac (mm): <a href="https://www.youtube.com/watch?v=6uAfKhjMe8o" target="_blank">&#8594;</a></label>
+            <input type="number" id="supraliac" required>
+
+            <label for="midaxillary">Midaxillary (mm): <a href="https://www.youtube.com/watch?v=oHCj6o2LZp0" target="_blank">&#8594;</a></label>
+            <input type="number" id="midaxillary" required>
+
+            <!-- Next Button -->
+        <button type="button" onclick="openTab('basicMetrics')">Next</button>
+        </div>
+
+        <!-- Basic Metrics Tab -->
+        <div id="basicMetrics" class="tab-content" style="display:none;">
+            <label for="weight">Weight (kg): <a href="https://www.youtube.com/watch?v=S2bS3F3H3q4" target="_blank">&#8594;</a></label>
+            <input type="number" id="weight" required>
+
+            <label for="height">Height (cm): <a href="https://www.youtube.com/watch?v=8sFzXP3zysg" target="_blank">&#8594;</a></label>
+            <input type="number" id="height" required>
+
+            <label for="age">Age (years): <a href="https://www.youtube.com/watch?v=Ne6-31MHYWI" target="_blank">&#8594;</a></label>
+            <input type="number" id="age" required>
+
+            <button type="button" onclick="calculateResults()">Calculate</button>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results"></div>
+    </div>
+
+    <!-- Link to the JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a0e27;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.calculator-container {
+    background-color: #1a1f38;
+    padding: 20px;
+    border-radius: 8px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #e0e4f1;
+    margin-bottom: 20px;
+}
+
+/* Start Button Styling */
+#startButton {
+    background-color: #003366; /* Dark Blue */
+    color: white;
+    padding: 15px 32px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Hover effect for the Start Button */
+#startButton:hover {
+    background-color: #002244; /* Slightly darker blue */
+}
+
+/* Tab container and button styles */
+.tab-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    width: 100%; /* Ensure the container takes up the full width */
+    text-align: center; /* Center the text inside the buttons */
+}
+
+.tab-button {
+    background-color: #1a1f38;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px 4px 0 0;
+    flex: 1;
+    margin: 0 2px;
+    transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+    background-color: #2a2f50;
+}
+
+.tab-content {
+    display: none;
+}
+
+/* Label and input styling */
+label {
+    display: block;
+    font-size: 0.9rem;
+    color: #c5cbe3;
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* Target the <a> tag inside the label and add padding to the right of the text */
+label a {
+    padding-left: 5px;  /* Adds space between the label text and the arrow */
+    font-size: 1.4rem;  /* Ensures the arrow is sized appropriately */
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 10px;
+    border: 1px solid #3b4367;
+    border-radius: 4px;
+    background-color: #232946;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+/* Button styling */
+button[type="button"] {
+    background-color: #4e5d94;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+button[type="button"]:hover {
+    background-color: #596aa6;
+}
+
+/* Style for all arrow links (→) */
+a[href^="https://www.youtube.com/watch"] {
+    font-size: 24px;           /* Make the arrow larger */
+    color: white;              /* Set the arrow color to white */
+    text-decoration: none;     /* Remove the underline */
+    display: inline-block;       /* Ensure the link is inline for positioning */
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth transition for transform and color */
+}
+
+a[href^="https://www.youtube.com/watch"]:hover {
+    transform: translateX(5px);  /* Move the arrow 5px to the right on hover */
+    color: #f0f0f0;             /* Slightly change the color to a lighter white on hover */
+}
+
+
+/* Result display styling */
+#results {
+    margin-top: 20px;
+    color: #e0e4f1;
+    font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 360px) {
+    .calculator-container {
+        width: 100%;
+        padding: 15px;
+    }
+}
