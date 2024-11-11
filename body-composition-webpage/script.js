@@ -66,15 +66,76 @@ function calculateResults() {
     const waistToHeightRatio = waist / height;
     const waistToChestRatio = waist / chest;
 
+// Hide the input form, title, and tabs
+    document.getElementById("basicMetrics").style.display = "none"; // Hide form
+    document.getElementById("skinfoldMeasurements").style.display = "none"; // Hide form
+    document.getElementById("bodyMeasurements").style.display = "none"; // Hide form
+    document.querySelector("h1").style.display = "none";  // Hides the title
+    document.querySelector(".tab-container").style.display = "none";  // Hides the tab buttons
+
+
     // Display the results on the webpage
     const resultsDiv = document.getElementById("results");
     resultsDiv.innerHTML = `
-        <h2>Results</h2>
-        <p><strong>Body Fat Percentage:</strong> ${bodyFatPercentage.toFixed(2)}%</p>
-        <p><strong>Lean Body Mass:</strong> ${leanBodyMass.toFixed(2)} kg</p>
-        <p><strong>Waist-to-Height Ratio:</strong> ${waistToHeightRatio.toFixed(2)}</p>
-        <p><strong>Waist-to-Chest Ratio:</strong> ${waistToChestRatio.toFixed(2)}</p>
-    `;
+    <h2>Results</h2>
+    <p><strong>Body Fat Percentage:</strong> ${bodyFatPercentage.toFixed(2)}%</p>
+    <p><strong>Lean Body Mass:</strong> ${leanBodyMass.toFixed(2)} kg</p>
+    <p><strong>Waist-to-Height Ratio:</strong> ${waistToHeightRatio.toFixed(2)}</p>
+    <p><strong>Waist-to-Chest Ratio:</strong> ${waistToChestRatio.toFixed(2)}</p>
+
+    <!-- Slider for Body Fat Percentage -->
+    <div id="slider-container">
+        <label for="bodyFatSlider">Body Fat Percentage: </label>
+        <input type="range" id="bodyFatSlider" min="0" max="50" value="0" step="0.1" disabled>
+        <span id="bodyFatPercentage"></span>
+    </div>
+`;
+
+    // Ensure results container is visible
+    resultsDiv.style.display = "block";
+
+    // Animate the slider from 0 to the body fat percentage value
+    const slider = document.getElementById("bodyFatSlider");
+    const sliderLabel = document.getElementById("bodyFatPercentage");
+
+    let currentVal = 0;
+    const targetVal = bodyFatPercentage;
+
+    // Function to calculate the color based on body fat percentage
+function getColorBasedOnPercentage(percentage) {
+    if (percentage <= 2) {
+        return "white";
+    } else if (percentage <= 14) {
+        // Transition from light green to bright green
+        const greenValue = Math.floor(255 * (percentage - 2) / 12); // 12 range (from 2 to 14)
+        return `rgb(0, ${greenValue}, 0)`;
+    } else if (percentage <= 21) {
+        // Transition from yellow
+        const redValue = Math.floor(255 * (percentage - 14) / 7); // 7 range (from 14 to 21)
+        return `rgb(${redValue}, 255, 0)`;
+    } else if (percentage <= 31) {
+        // Transition from pink to red
+        const greenValue = Math.floor(255 * (percentage - 21) / 10); // 10 range (from 21 to 31)
+        return `rgb(255, ${255 - greenValue}, ${greenValue})`;
+    } else {
+        // Fully red from 31 to 50
+        return "rgb(255, 0, 0)";
+    }
+}
+
+    // Update the slider and label gradually
+    const interval = setInterval(() => {
+        if (currentVal < targetVal) {
+            currentVal += 0.5; // Adjust speed here, the smaller the number, the slower the slide
+            slider.value = currentVal.toFixed(1);
+            sliderLabel.textContent = `${currentVal.toFixed(1)}%`;
+            
+          // Apply the color update for the body fat percentage number
+          sliderLabel.style.color = getColorBasedOnPercentage(currentVal);  // Apply color change here
+        } else {
+            clearInterval(interval); // Stop the interval once the target value is reached
+        }
+    }, 15); // Set interval to 30ms for smooth animation
 }
 
 
