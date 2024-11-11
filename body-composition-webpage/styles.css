@@ -72,7 +72,8 @@ h1 {
 
 /* Label and input styling */
 label {
-    display: block;
+    display: flex;
+    align-items: center;
     font-size: 0.9rem;
     color: #c5cbe3;
     text-align: left;
@@ -112,26 +113,74 @@ button[type="button"]:hover {
     background-color: #596aa6;
 }
 
-/* Style for all arrow links (→) */
-a[href^="https://www.youtube.com/watch"] {
-    font-size: 24px;           /* Make the arrow larger */
-    color: white;              /* Set the arrow color to white */
-    text-decoration: none;     /* Remove the underline */
-    display: inline-block;       /* Ensure the link is inline for positioning */
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth transition for transform and color */
+/* Video Button Styling */
+.video-button {
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-size: 0.8rem;
+    line-height: 1;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-left: auto;            /* Small space between label and button */
+    vertical-align: middle;      /* Align with text next to it */
 }
 
-a[href^="https://www.youtube.com/watch"]:hover {
-    transform: translateX(5px);  /* Move the arrow 5px to the right on hover */
-    color: #f0f0f0;             /* Slightly change the color to a lighter white on hover */
+.video-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 2px 5px rgba(0, 91, 187, 0.4);
 }
 
+/* Footer link styling */
+footer a {
+    color: #00ccff; /* A bright blue color, similar to a lightsaber */
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+footer a:hover {
+    color: #66d9ff; /* Slightly lighter blue on hover */
+    text-shadow: 0 0 8px #66d9ff, 0 0 12px #66d9ff; /* Glowing effect */
+}
 
 /* Result display styling */
 #results {
     margin-top: 20px;
     color: #e0e4f1;
     font-size: 1rem;
+}
+
+/* Style the slider container */
+#slider-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#bodyFatSlider {
+    width: 80%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: width 0.3s ease-in-out;
+}
+
+#bodyFatSlider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    background: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#bodyFatSlider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 /* Responsive adjustments */
